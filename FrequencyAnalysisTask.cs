@@ -18,7 +18,7 @@ namespace TextAnalysis
 
         static List<string[]> FindNGrams(List<List<string>> sentence, int N)      //Возвращает лист Nмерных масивов Nграмм
         {
-            List<string[]> NGram = new List<string[]>();
+            List<string[]> nGram = new List<string[]>();
 
             for (int senNum = 0; senNum < sentence.Count; senNum++)
             {
@@ -26,16 +26,16 @@ namespace TextAnalysis
                 {
                     for (int wordNum = 0; wordNum < sentence[senNum].Count - (N - 1); wordNum++)
                     {
-                        NGram.Add(new string[N]);
+                        nGram.Add(new string[N]);
                         for (int i = 0; i < N; i++)
                         {
-                            NGram[NGram.Count - 1][i] = sentence[senNum][wordNum + i];
+                            nGram[nGram.Count - 1][i] = sentence[senNum][wordNum + i];
                         }
                     }
                 }
             }
 
-            return NGram;
+            return nGram;
         }
 
         static Dictionary<string, string> ParceNGrams(List<string[]> nGram)       //создаё словарь, где key - начало, а volue - окончание N-грамма
